@@ -1,0 +1,120 @@
+<<<<<<< HEAD
+<style>
+    .acc-card {
+        background-color: gray;
+        border-radius: 15px;
+        color: white;
+        width: 20vw;
+        padding: 15px;
+        margin: 10px 25px;
+        height: 10vh;
+        text-align: left;
+    }
+</style>
+
+<script type="text/javascript">
+  function getID(card) {
+    document.getElementById('id-num').setAttribute('value', (card.children[1].innerHTML.substring(12)))
+    var accCards = document.getElementsByClassName('acc-card')
+    for (let i = 0; i < accCards.length; i++) {
+        accCards[i].style.backgroundColor = "gray"
+    }
+    card.style.backgroundColor = "maroon"
+  }
+</script>
+
+
+{% extends "base.html" %}
+{% block body %}
+<form style="text-align: center" action="/" method="post">
+    <h1>Please select your account to continue: </h1>
+    <p>Jump to: <a href="#teachers">Teachers</a> | <a href="#students">Students</a></p>
+    <input type="number" id="id-num" style="display: none" name="id-num">
+    <input style="font-size: larger; margin: 10px" type="submit" value="Submit">
+</form>
+
+<h1 id="teachers">Teachers:</h1>
+<div style="display: flex; flex-wrap: wrap; width: 100vw; justify-content: left">
+    {% for acc in accounts %}
+        {% if acc[1] == 'Teacher' %}
+            <button class="acc-card" onclick="getID(this)">
+                <h3>Name: {{ acc[2] + " " + acc[3] }}</h3>
+                <p>Teacher ID: {{ acc[0] }}</p>
+            </button>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<br><br>
+<h1 id="students">Students:</h1>
+<div style="display: flex; flex-wrap: wrap; width: 100vw; justify-content: left">
+    {% for acc in accounts %}
+        {% if acc[1] == 'Student' %}
+            <button class="acc-card" onclick="getID(this)">
+                <h3>Name: {{ acc[2] + " " + acc[3] }}</h3>
+                <p>Student ID: {{ acc[0] }}</p>
+            </button>
+        {% endif %}
+    {% endfor %}
+</div>
+=======
+<style>
+    .acc-card {
+        background-color: gray;
+        border-radius: 15px;
+        color: white;
+        width: 20vw;
+        padding: 15px;
+        margin: 10px 25px;
+        height: 10vh;
+        text-align: left;
+    }
+</style>
+
+<script type="text/javascript">
+  function getID(card) {
+    document.getElementById('id-num').setAttribute('value', (card.children[1].innerHTML.substring(12)))
+    var accCards = document.getElementsByClassName('acc-card')
+    for (let i = 0; i < accCards.length; i++) {
+        accCards[i].style.backgroundColor = "gray"
+    }
+    card.style.backgroundColor = "maroon"
+  }
+</script>
+
+
+{% extends "base.html" %}
+{% block body %}
+<form style="text-align: center" action="/" method="post">
+    <h1>Please select your account to continue: </h1>
+    <p>Jump to: <a href="#teachers">Teachers</a> | <a href="#students">Students</a></p>
+    <input type="number" id="id-num" style="display: none" name="id-num">
+    <input style="font-size: larger; margin: 10px" type="submit" value="Submit">
+</form>
+
+<h1 id="teachers">Teachers:</h1>
+<div style="display: flex; flex-wrap: wrap; width: 100vw; justify-content: left">
+    {% for acc in accounts %}
+        {% if acc[1] == 'Teacher' %}
+            <button class="acc-card" onclick="getID(this)">
+                <h3>Name: {{ acc[2] + " " + acc[3] }}</h3>
+                <p>Teacher ID: {{ acc[0] }}</p>
+            </button>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<br><br>
+<h1 id="students">Students:</h1>
+<div style="display: flex; flex-wrap: wrap; width: 100vw; justify-content: left">
+    {% for acc in accounts %}
+        {% if acc[1] == 'Student' %}
+            <button class="acc-card" onclick="getID(this)">
+                <h3>Name: {{ acc[2] + " " + acc[3] }}</h3>
+                <p>Student ID: {{ acc[0] }}</p>
+            </button>
+        {% endif %}
+    {% endfor %}
+</div>
+>>>>>>> 5d6597b24ff86eb983749a1789e2408558be337c
+{% endblock %}

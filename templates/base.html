@@ -1,0 +1,68 @@
+<<<<<<< HEAD
+<html>
+
+    <link rel="stylesheet" href="static/styles/style.css">
+
+    <header>
+
+        <div id="nav-bar">
+            <a href="/" class="nav-link">Change Account</a>
+            <div class="dropdown">
+                <button class="btn">Sign Up</button>
+                <div class="drop-content">
+                    <form action="/" method="post">
+                        <input id="firstname" type="text" name="firstname" placeholder="First Name" class="input_field">
+                        <input id="lastname" type="text" name="lastname" placeholder="Last Name" class="input_field">
+                        <select id="acc_type" name="acc_type" class="input_field">
+                            <option selected="selected" value="Teacher">Teacher</option>
+                            <option value="Student">Student</option>
+                        </select>
+                        <input name="id-num" style="display: none" value="">
+                        <input type="submit" value="submit">
+                    </form>
+                </div>
+            </div>
+            <img src="static/bulldog.jpg" style="height: 50px; width: 50px; float: right; margin: 0.5%;">
+            <h2 style="float: right; margin: 0.7%; color: white;">Thaddeus Stevens College of Technology</h2>
+        </div>
+
+    </header>
+
+    {% block body %}
+    {% endblock %}
+
+=======
+<html>
+
+    <link rel="stylesheet" href="static/styles/style.css">
+
+    <header>
+
+        <div id="nav-bar">
+            <a href="/" class="nav-link">Change Account</a>
+            <div class="dropdown">
+                <button class="btn">Sign Up</button>
+                <div class="drop-content">
+                    <form action="/" method="post">
+                        <input id="firstname" type="text" name="firstname" placeholder="First Name" class="input_field">
+                        <input id="lastname" type="text" name="lastname" placeholder="Last Name" class="input_field">
+                        <select id="acc_type" name="acc_type" class="input_field">
+                            <option selected="selected" value="Teacher">Teacher</option>
+                            <option value="Student">Student</option>
+                        </select>
+                        <input name="id-num" style="display: none" value="">
+                        <input type="submit" value="submit">
+                    </form>
+                </div>
+            </div>
+            <img src="static/bulldog.jpg" style="height: 50px; width: 50px; float: right; margin: 0.5%;">
+            <h2 style="float: right; margin: 0.7%; color: white;">Thaddeus Stevens College of Technology</h2>
+        </div>
+
+    </header>
+
+    {% block body %}
+    {% endblock %}
+
+>>>>>>> 5d6597b24ff86eb983749a1789e2408558be337c
+</html>

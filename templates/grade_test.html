@@ -1,0 +1,54 @@
+<<<<<<< HEAD
+{% extends "base.html" %}
+{% block body %}
+<h1>Student ID: {{ student }}</h1>
+<form action="/submit_grade" method="post">
+    <input type="number" style="display: none" name="grade_test_id" value="{{ test }}">
+    <input type="number" style="display: none" name="student_id" value="{{ student }}">
+    {% set qNum = [] %}
+    {% for answer in answers %}
+        {% set answer = answer | string() %}
+        {% set answer = answer[2:] %}
+        {% set answer = answer[:-3] %}
+        <p>Question {{ questions[qNum|length][0] }}: {{ questions[qNum|length][1] }}</p>
+        <p>Answer: {{answer}}</p>
+        <br><br>
+         {% set __ = qNum.append(1) %}
+    {% endfor %}
+    <select name="grade">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="F">F</option>
+    </select>
+    <input type="submit" value="Submit Grade">
+</form>
+=======
+{% extends "base.html" %}
+{% block body %}
+<h1>Student ID: {{ student }}</h1>
+<form action="/submit_grade" method="post">
+    <input type="number" style="display: none" name="grade_test_id" value="{{ test }}">
+    <input type="number" style="display: none" name="student_id" value="{{ student }}">
+    {% set qNum = [] %}
+    {% for answer in answers %}
+        {% set answer = answer | string() %}
+        {% set answer = answer[2:] %}
+        {% set answer = answer[:-3] %}
+        <p>Question {{ questions[qNum|length][0] }}: {{ questions[qNum|length][1] }}</p>
+        <p>Answer: {{answer}}</p>
+        <br><br>
+         {% set __ = qNum.append(1) %}
+    {% endfor %}
+    <select name="grade">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="F">F</option>
+    </select>
+    <input type="submit" value="Submit Grade">
+</form>
+>>>>>>> 5d6597b24ff86eb983749a1789e2408558be337c
+{% endblock %}

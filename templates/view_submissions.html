@@ -1,0 +1,68 @@
+<<<<<<< HEAD
+<style>
+    .submission-card {
+        background-color: maroon;
+        border-radius: 15px;
+        color: white;
+        width: 20vw;
+        padding: 15px;
+        margin: 10px 25px;
+        height: 12vh;
+        text-align: left;
+    }
+</style>
+
+{% extends "base.html" %}
+{% block body %}
+<div style="text-align: center">
+    <h1>Submissions</h1>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; width: 100vw; justify-content: left">
+    {% for sub in submissions %}
+        <div class="submission-card">
+            <p>Student ID: {{ sub[0] }}</p>
+            <p>Grade: {{ sub[1] }}</p>
+            <form action="/grade_test" method="post">
+                <input name="student_id" value="{{ sub[0] }}" style="display: none">
+                <input name="grade_test_id" value="{{ currentTestID }}" style="display: none">
+                <input type="submit" value="VIEW">
+            </form>
+        </div>
+    {% endfor %}
+</div>
+=======
+<style>
+    .submission-card {
+        background-color: maroon;
+        border-radius: 15px;
+        color: white;
+        width: 20vw;
+        padding: 15px;
+        margin: 10px 25px;
+        height: 12vh;
+        text-align: left;
+    }
+</style>
+
+{% extends "base.html" %}
+{% block body %}
+<div style="text-align: center">
+    <h1>Submissions</h1>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; width: 100vw; justify-content: left">
+    {% for sub in submissions %}
+        <div class="submission-card">
+            <p>Student ID: {{ sub[0] }}</p>
+            <p>Grade: {{ sub[1] }}</p>
+            <form action="/grade_test" method="post">
+                <input name="student_id" value="{{ sub[0] }}" style="display: none">
+                <input name="grade_test_id" value="{{ currentTestID }}" style="display: none">
+                <input type="submit" value="VIEW">
+            </form>
+        </div>
+    {% endfor %}
+</div>
+>>>>>>> 5d6597b24ff86eb983749a1789e2408558be337c
+{% endblock %}

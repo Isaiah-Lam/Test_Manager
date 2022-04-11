@@ -1,0 +1,26 @@
+<<<<<<< HEAD
+{% extends "base.html" %}
+{% block body %}
+<h1>Enter the questions for {{ testName }}</h1>
+<form action="/create_questions" method="post">
+    {% for q in range(numQ) %}
+        <label for="q_input{{ q+1 }}">Question {{ q+1 }}:</label>
+        <input name="q_input{{ q+1 }}" id="q_input{{ q+1 }}" placeholder="Enter the question">
+    <br><br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>
+=======
+{% extends "base.html" %}
+{% block body %}
+<h1>Enter the questions for {{ testName }}</h1>
+<form action="/create_questions" method="post">
+    {% for q in range(numQ) %}
+        <label for="q_input{{ q+1 }}">Question {{ q+1 }}:</label>
+        <input name="q_input{{ q+1 }}" id="q_input{{ q+1 }}" placeholder="Enter the question">
+    <br><br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>
+>>>>>>> 5d6597b24ff86eb983749a1789e2408558be337c
+{% endblock %}

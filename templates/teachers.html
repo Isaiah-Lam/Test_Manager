@@ -1,0 +1,142 @@
+<<<<<<< HEAD
+<style>
+    .test-card {
+        background-color: maroon;
+        border-radius: 15px;
+        color: white;
+        width: 20vw;
+        padding: 15px;
+        margin: 10px 25px;
+        height: 12vh;
+        text-align: left;
+    }
+</style>
+
+<script type="text/javascript">
+  function showForm(id, btn) {
+    document.getElementById(id).style.display = "inline"
+    if (id == 'editQForm') {
+        document.getElementById('edit-test-id').setAttribute('value', (btn.parentNode.children[2].innerHTML))
+    }
+    else if (id == 'deleteForm') {
+        document.getElementById('del-test-id').setAttribute('value', (btn.parentNode.children[2].innerHTML))
+    }
+  }
+</script>
+
+{% extends "base.html" %}
+{% block body %}
+<div style="text-align: center">
+    <h1>Hello {{ name }}</h1>
+    <p>Jump to: <a href="#upcoming">Upcoming</a> | <a href="#past">Past</a></p>
+</div>
+
+<h1 id="upcoming">Your Created Tests: <button style="background-color: green; width: 60px; color: white" onclick="showForm('numQForm', this)">CREATE</button></h1>
+<form id="numQForm" action="/create_test" method="post" style="display: none">
+    <input placeholder="Test Name" name="test_name">
+    <input type="number" placeholder="Number of questions" name="num_q">
+    <input type="submit" value="Submit">
+</form>
+<form id="editQForm" action="/edit_test" method="post" style="display: none">
+    <input type="number" name="test_id" id="edit-test-id" style="display: none">
+    <input type="number" placeholder="Question # to Edit" name="q_num">
+    <input placeholder="New Question" name="new_q">
+    <input type="submit" value="Submit">
+</form>
+<form id="deleteForm" action="/delete_test" method="post" style="display: none">
+    <input type="number" name="del_test_id" id="del-test-id" style="display: none">
+    <label for="del-yes-no">Are you sure?</label>
+    <select id="del-yes-no" name="yes-no">
+        <option selected="selected" value="yes">Yes</option>
+        <option value="no">No</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+<div style="display: flex; flex-wrap: wrap; width: 100vw; justify-content: left">
+    {% for test in tests %}
+        <div class="test-card">
+            <h3>Test Name: {{ test[1] }}</h3>
+            <p>Submissions: {{ subCounts[0] }}</p>
+            <p style="display: none">{{ test[0] }}</p>
+            <button style="background-color: red; width: 60px; color: white; float: right" onclick="showForm('deleteForm', this)">DELETE</button>
+            <button style="background-color: gold; width: 60px; color: white; float: right" onclick="showForm('editQForm', this)">EDIT</button>
+            <form action="/view_subs" method="post">
+                <input style="display: none" name="grade_test_id" value="{{ test[0] }}">
+                <input type="submit" value="GRADE" style="background-color: blue; width: 60px; color: white; float: right">
+            </form>
+        </div>
+        {% set useless = subCounts.pop(0) %}
+    {% endfor %}
+</div>
+=======
+<style>
+    .test-card {
+        background-color: maroon;
+        border-radius: 15px;
+        color: white;
+        width: 20vw;
+        padding: 15px;
+        margin: 10px 25px;
+        height: 12vh;
+        text-align: left;
+    }
+</style>
+
+<script type="text/javascript">
+  function showForm(id, btn) {
+    document.getElementById(id).style.display = "inline"
+    if (id == 'editQForm') {
+        document.getElementById('edit-test-id').setAttribute('value', (btn.parentNode.children[2].innerHTML))
+    }
+    else if (id == 'deleteForm') {
+        document.getElementById('del-test-id').setAttribute('value', (btn.parentNode.children[2].innerHTML))
+    }
+  }
+</script>
+
+{% extends "base.html" %}
+{% block body %}
+<div style="text-align: center">
+    <h1>Hello {{ name }}</h1>
+    <p>Jump to: <a href="#upcoming">Upcoming</a> | <a href="#past">Past</a></p>
+</div>
+
+<h1 id="upcoming">Your Created Tests: <button style="background-color: green; width: 60px; color: white" onclick="showForm('numQForm', this)">CREATE</button></h1>
+<form id="numQForm" action="/create_test" method="post" style="display: none">
+    <input placeholder="Test Name" name="test_name">
+    <input type="number" placeholder="Number of questions" name="num_q">
+    <input type="submit" value="Submit">
+</form>
+<form id="editQForm" action="/edit_test" method="post" style="display: none">
+    <input type="number" name="test_id" id="edit-test-id" style="display: none">
+    <input type="number" placeholder="Question # to Edit" name="q_num">
+    <input placeholder="New Question" name="new_q">
+    <input type="submit" value="Submit">
+</form>
+<form id="deleteForm" action="/delete_test" method="post" style="display: none">
+    <input type="number" name="del_test_id" id="del-test-id" style="display: none">
+    <label for="del-yes-no">Are you sure?</label>
+    <select id="del-yes-no" name="yes-no">
+        <option selected="selected" value="yes">Yes</option>
+        <option value="no">No</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+<div style="display: flex; flex-wrap: wrap; width: 100vw; justify-content: left">
+    {% for test in tests %}
+        <div class="test-card">
+            <h3>Test Name: {{ test[1] }}</h3>
+            <p>Submissions: {{ subCounts[0] }}</p>
+            <p style="display: none">{{ test[0] }}</p>
+            <button style="background-color: red; width: 60px; color: white; float: right" onclick="showForm('deleteForm', this)">DELETE</button>
+            <button style="background-color: gold; width: 60px; color: white; float: right" onclick="showForm('editQForm', this)">EDIT</button>
+            <form action="/view_subs" method="post">
+                <input style="display: none" name="grade_test_id" value="{{ test[0] }}">
+                <input type="submit" value="GRADE" style="background-color: blue; width: 60px; color: white; float: right">
+            </form>
+        </div>
+        {% set useless = subCounts.pop(0) %}
+    {% endfor %}
+</div>
+>>>>>>> 5d6597b24ff86eb983749a1789e2408558be337c
+{% endblock %}

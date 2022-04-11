@@ -1,0 +1,122 @@
+<<<<<<< HEAD
+<style>
+    .test-card {
+        background-color: maroon;
+        border-radius: 15px;
+        color: white;
+        width: 20vw;
+        padding: 15px;
+        margin: 10px 25px;
+        height: 12vh;
+        text-align: left;
+    }
+</style>
+
+<script type="text/javascript">
+  function showForm(id, btn) {
+    document.getElementById(id).style.display = "inline"
+    document.getElementById('take-test-id').setAttribute('value', (btn.parentNode.children[2].innerHTML))
+  }
+</script>
+
+{% extends "base.html" %}
+{% block body %}
+<div style="text-align: center">
+    <h1>Hello {{ name }}</h1>
+    <p>Jump to: <a href="#upcoming">Upcoming</a> | <a href="#past">Past</a></p>
+</div>
+
+<h1 id="upcoming">Your Upcoming tests:</h1>
+<form id="takeForm" action="/take_test" method="post" style="display: none">
+    <input type="number" name="take_test_id" id="take-test-id" style="display: none">
+    <label for="yes-no">Are you sure?</label>
+    <select id="yes-no" name="yes-no">
+        <option selected="selected" value="yes">Yes</option>
+        <option value="no">No</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+
+<div style="display: flex; flex-wrap: wrap; width: 100vw; justify-content: left">
+    {% for test in tests %}
+        <div class="test-card">
+            <h3>Test Name: {{ test[1] }}</h3>
+            <p>Teacher ID: {{ test[2] }}</p>
+            <p style="display: none">{{ test[0] }}</p>
+            <button style="background-color: blue; width: 100px; color: white; float: right" onclick="showForm('takeForm', this)">TAKE TEST</button>
+        </div>
+    {% endfor %}
+</div>
+<br><br>
+<h1 id="past">Previous Tests:</h1>
+<div style="display: flex; flex-wrap: wrap; width: 100vw; justify-content: left">
+    {% for test in taken %}
+        <div class="test-card">
+            <h3>Test Name: {{ test[1] }}</h3>
+            <p>Grade: {{ test[3] }}</p>
+            <p>Teacher ID: {{ test[4] }}</p>
+        </div>
+    {% endfor %}
+</div>
+=======
+<style>
+    .test-card {
+        background-color: maroon;
+        border-radius: 15px;
+        color: white;
+        width: 20vw;
+        padding: 15px;
+        margin: 10px 25px;
+        height: 12vh;
+        text-align: left;
+    }
+</style>
+
+<script type="text/javascript">
+  function showForm(id, btn) {
+    document.getElementById(id).style.display = "inline"
+    document.getElementById('take-test-id').setAttribute('value', (btn.parentNode.children[2].innerHTML))
+  }
+</script>
+
+{% extends "base.html" %}
+{% block body %}
+<div style="text-align: center">
+    <h1>Hello {{ name }}</h1>
+    <p>Jump to: <a href="#upcoming">Upcoming</a> | <a href="#past">Past</a></p>
+</div>
+
+<h1 id="upcoming">Your Upcoming tests:</h1>
+<form id="takeForm" action="/take_test" method="post" style="display: none">
+    <input type="number" name="take_test_id" id="take-test-id" style="display: none">
+    <label for="yes-no">Are you sure?</label>
+    <select id="yes-no" name="yes-no">
+        <option selected="selected" value="yes">Yes</option>
+        <option value="no">No</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+
+<div style="display: flex; flex-wrap: wrap; width: 100vw; justify-content: left">
+    {% for test in tests %}
+        <div class="test-card">
+            <h3>Test Name: {{ test[1] }}</h3>
+            <p>Teacher ID: {{ test[2] }}</p>
+            <p style="display: none">{{ test[0] }}</p>
+            <button style="background-color: blue; width: 100px; color: white; float: right" onclick="showForm('takeForm', this)">TAKE TEST</button>
+        </div>
+    {% endfor %}
+</div>
+<br><br>
+<h1 id="past">Previous Tests:</h1>
+<div style="display: flex; flex-wrap: wrap; width: 100vw; justify-content: left">
+    {% for test in taken %}
+        <div class="test-card">
+            <h3>Test Name: {{ test[1] }}</h3>
+            <p>Grade: {{ test[3] }}</p>
+            <p>Teacher ID: {{ test[4] }}</p>
+        </div>
+    {% endfor %}
+</div>
+>>>>>>> 5d6597b24ff86eb983749a1789e2408558be337c
+{% endblock %}

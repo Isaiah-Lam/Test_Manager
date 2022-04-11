@@ -1,0 +1,39 @@
+<<<<<<< HEAD
+<style>
+    .nav-link, .dropdown {
+        display: none;
+    }
+</style>
+{% extends "base.html" %}
+{% block body %}
+<h1>{{ testName }}</h1>
+<form action="/submit_test" method="post">
+    <input style="display: none" name="testName" value="{{ testName }}">
+    {% for question in test %}
+        <label for="question{{ question[2] }}">Question {{ question[2] }}:<br>{{ question[1] }}</label>
+        <input placeholder="Your answer" name="question{{ question[2] }}" id="question{{ question[2] }}">
+        <br><br>
+    {% endfor %}
+    <input type="submit" value="Submit Test">
+</form>
+{% endblock %}
+=======
+<style>
+    .nav-link, .dropdown {
+        display: none;
+    }
+</style>
+{% extends "base.html" %}
+{% block body %}
+<h1>{{ testName }}</h1>
+<form action="/submit_test" method="post">
+    <input style="display: none" name="testName" value="{{ testName }}">
+    {% for question in test %}
+        <label for="question{{ question[2] }}">Question {{ question[2] }}:<br>{{ question[1] }}</label>
+        <input placeholder="Your answer" name="question{{ question[2] }}" id="question{{ question[2] }}">
+        <br><br>
+    {% endfor %}
+    <input type="submit" value="Submit Test">
+</form>
+{% endblock %}
+>>>>>>> 5d6597b24ff86eb983749a1789e2408558be337c
